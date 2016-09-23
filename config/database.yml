@@ -2,7 +2,7 @@ default: &default
   adapter: postgresql
   encoding: unicode
   password:
-  username: belt_exam
+  username: ubuntu
   pool: 5
   timeout: 5000
 
