@@ -1,0 +1,35 @@
+* {
+    font-family: arial;
+}
+.reg_log, h3, .edit_user {
+    display: inline-block;
+    vertical-align: top;
+}
+.reg_log form, .edit_user {
+    text-align: right;
+}
+.reg_log label {
+    text-align: left
+}
+.error {
+    color: red;
+}
+.right_links {
+    float: right;
+    margin: 1rem 0 0 0;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 60%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}

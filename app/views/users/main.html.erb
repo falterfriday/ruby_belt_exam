@@ -1,0 +1,34 @@
+<fieldset class="reg_log">
+    <legend>Register</legend>
+    <form action="/register" method="post"><br>
+        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+        <label for="name">Name:</label>
+            <input type="text" name="user[name]" value=""><br>
+        <label for="email">Email:</label>
+            <input type="text" name="user[email]" value=""><br>
+        <label for="password">Password:</label>
+            <input type="password" name="user[password]" value=""><br>
+        <p>*Password should be at least 8 characters</p>
+        <label for="confirm pw">Confirm PW:</label>
+            <input type="password" name="user[password_confirmation]" value=""><br>
+        <label for="description">Description:</label>
+            <input type="text" name="user[description]" value=""><br>
+        <input type="submit" name="name" value="Register">
+    </form>
+</fieldset>
+<fieldset class="reg_log">
+    <legend>Login</legend>
+    <form action="/login" method="post">
+        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+        <label for="email">Email:</label>
+        <input type="text" name="loginUser[email]"><br>
+        <label for="password">Password:</label>
+        <input type="password" name="loginUser[password]"><br>
+        <input type="submit" name="Login" value="Login">
+    </form>
+</fieldset>
+<% if flash[:errors]%>
+    <% flash[:errors].each do |error| %>
+        <li class="error"><%= error %></li>
+    <% end %>
+<% end %>

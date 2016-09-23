@@ -1,0 +1,23 @@
+<div class="right_links">
+    <a href="/professional_profile">My Profile</a> |
+    <a href="/logout">Logout</a>
+</div>
+
+<h3>Users you may want to connect with:</h3>
+
+<table>
+    <thead>
+        <th>Name</th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+        <% @users.each do |user|%>
+            <% if @current_user.friends.include?(user) == false && @current_user.invites.include?(user) == false %>
+                <tr>
+                    <td><a href="/users/<%=user.id%>"><%= user.name %></a></td>
+                    <td><a href="/invite/<%=user.id%>">Connect</a></td>
+                </tr>
+            <% end %>
+        <% end %>
+    </tbody>
+</table>

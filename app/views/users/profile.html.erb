@@ -1,0 +1,40 @@
+<div class="right_links">
+    <a href="/users">All Users</a> |
+    <a href="/logout">Logout</a>
+</div>
+<h3>Hi, <%= @current_user.name %>!</h3>
+<br>
+<h3>Here is your profile description</h3>
+<div class="description_div">
+    <%= @current_user.description %>
+</div>
+
+<h3>Your Professional Network</h3>
+<div class="network_div">
+    <% @current_user.friendships.each do |friend| %>
+        <li><a href="/users/<%= friend.friend.id %>"><%= friend.friend.name %></a> </li>
+    <% end %>
+    <% @friendships.each do |friend|%>
+        <li><a href="/users/<%= friend.user.id %>"><%=friend.user.name%></a></li>
+    <% end %>
+</div>
+
+<h3>Invitations:</h3>
+<h6>The following people asked you to be in their network:</h6>
+<table>
+    <thead>
+        <th>Name</th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+        <% @invitations.each do |invite| %>
+        <tr>
+            <td><a href="users/<%= invite.user.id %>"><%= invite.user.name %></a></td>
+            <td>
+                <a href="/add_friend/<%= invite.user.id %>/<%= invite.id %>">Accept Invitation</a>
+                <a href="/delete_invitation/<%= invite.id %>">Ignore</a>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
