@@ -6,8 +6,5 @@ class CreateInvitations < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-
-    add_index(:invitations, [:user_id, :invite_user_id], :unique => true)
-
   end
 end
